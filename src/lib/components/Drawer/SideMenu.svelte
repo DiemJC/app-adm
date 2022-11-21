@@ -7,7 +7,8 @@
     <li><a href={null} ><HomeIcon/> Dashboards</a></li>
     <li><a href={null} ><UserIcon/> Colaboradores</a></li>
     <div class="divider"></div>
-    <li><a href={null}><TagIcon/> Marcas</a></li>
+    <!--DESDE ACÁ-->
+    <li><a href="/brand"><TagIcon/> Marcas</a></li>
     <li><a href={null}><BoxIcon/> Categorias</a></li>
     <li><a href={null}><CartIcon/> Productos</a></li>
     <li><a href={null}><FolderIcon/> Ingreso</a></li>

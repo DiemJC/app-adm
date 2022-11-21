@@ -1,7 +1,7 @@
 <header>
     <div class="navbar bg-secondary">
         <div class="flex-1">
-            <a href={null} class="btn btn-ghost normal-case text-xl">SELL</a>
+            <a href="/home" class="btn btn-ghost normal-case text-xl">SELL</a>
         </div>
         <div class="flex-none gap-2">
             <!-- <div class="form-control">
