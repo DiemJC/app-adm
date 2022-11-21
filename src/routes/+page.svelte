@@ -1,6 +1,14 @@
 <script>
     import { enhance } from '$app/forms';
+    import { auth } from '$lib/store';
+    
     export let form;
+
+    $: if(form?.success) {
+        const { token , id , role } = form;
+        auth.login({token,id,role,isAuth:true})
+    }
+
 </script>
 
 <div class="form-box">

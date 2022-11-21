@@ -3,8 +3,9 @@ import { writable } from 'svelte/store';
 
 let init = {
     id:'',
-    isAuth:false,
-    profile:''
+    role:'',
+    token:'',
+    isAuth:false
 }
 
 const AuthStore = () => {
@@ -21,4 +22,6 @@ const AuthStore = () => {
             if(session) update(store => (store = {...store,...JSON.parse(session)}));
         }
     }
-}
+};
+
+export const auth = AuthStore();

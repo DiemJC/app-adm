@@ -1,5 +1,6 @@
 import { invalid } from '@sveltejs/kit';
 import { signIn } from '$lib/server/session';
+import { auth } from '$lib/store';
 
 export const actions = {
     default: async ({request}) => {
@@ -15,15 +16,18 @@ export const actions = {
         
         const response = await signIn({email,password});
         
-        const { success , message , token } = response;
+        const { success , message , token , role , id } = response;
 
         if(!success) return invalid(401,{failedFetch:true,message});
 
+        //auth.login({token,isAuth:true,role,id})
 
         return {
             success,
             message,
-            token
+            token,
+            id,
+            role
         }
     }
 }

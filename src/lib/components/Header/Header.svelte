@@ -1,3 +1,10 @@
+<script>
+    import { auth } from '$lib/store';
+
+    $: hasSession = $auth.isAuth;
+    $: console.log({path:'header',hasSession})
+</script>
+
 <header>
     <div class="navbar bg-secondary">
         <div class="flex-1">
@@ -9,6 +16,7 @@
             </div> -->
             <label for="my-drawer-2" class="btn btn-ghost text-white btn-xs drawer-button lg:hidden">Menu</label>
             <!-- ELIMINAR VISIBILIDAD EN MOVILES Y AGREGAR MENU PARA MOVILES -->
+            {#if hasSession}
             <div class="dropdown dropdown-end">
                 <label for="" tabindex="-1" class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full">
@@ -26,6 +34,7 @@
                     <li><a href={null}>Logout</a></li>
                 </ul>
             </div>
+            {/if}
         </div>
     </div>
 </header>
