@@ -1,10 +1,6 @@
-import { env } from '$env/dynamic/private';
-import client from 'socket.io-client';
+import { env } from '$env/dynamic/private'
 
 const apidir = env.API_URL;
-
-const socket = client(apidir);
-const io = socket;
 
 export const signIn = async ({email,password}) => {
     try {
@@ -17,7 +13,6 @@ export const signIn = async ({email,password}) => {
             body:JSON.stringify({email,password})
         });
         const data = await response.json();
-        io.on('connect',() => console.log(io.connected));
         return data;
     } catch (error) {
         return error;
