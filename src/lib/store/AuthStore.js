@@ -9,7 +9,7 @@ let init = {
 }
 
 const AuthStore = () => {
-    const { subscribe , update } = writable(init);
+    const { subscribe , update , set } = writable(init);
 
     return {
         subscribe,
@@ -20,7 +20,8 @@ const AuthStore = () => {
         refreshAuth: () => {
             let session = browser && localStorage.getItem('auth');
             if(session) update(store => (store = {...store,...JSON.parse(session)}));
-        }
+        },
+        logout:() => set(init)
     }
 };
 

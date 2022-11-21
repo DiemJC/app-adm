@@ -8,7 +8,5 @@ export const load = ({}) => {
 
     if(session) browser && auth.refreshAuth();
     
-    const sessionStored = get(auth);
-
-    if(sessionStored.isAuth) goto('/panel');
+    if(!session) goto('/')
 }

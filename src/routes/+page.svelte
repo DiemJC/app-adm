@@ -1,12 +1,14 @@
 <script>
     import { enhance } from '$app/forms';
+	import { goto } from '$app/navigation';
     import { auth } from '$lib/store';
     
     export let form;
 
     $: if(form?.success) {
         const { token , id , role } = form;
-        auth.login({token,id,role,isAuth:true})
+        auth.login({token,id,role,isAuth:true});
+        goto('/panel');
     }
 
 </script>
