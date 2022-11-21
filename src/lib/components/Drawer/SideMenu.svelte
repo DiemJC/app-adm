@@ -9,9 +9,9 @@
     <div class="divider"></div>
     <!--DESDE ACÁ-->
     <li><a href="/brand"><TagIcon/> Marcas</a></li>
-    <li><a href={null}><BoxIcon/> Categorias</a></li>
-    <li><a href={null}><CartIcon/> Productos</a></li>
-    <li><a href={null}><FolderIcon/> Ingreso</a></li>
-    <li><a href={null}><BagIcon/> Ventas</a></li>
-    <li><a href={null}><InfoIcon/> Preguntas Frecuentes</a></li>
+    <li><a href="/categories"><BoxIcon/> Categorias</a></li>
+    <li><a href="/products"><CartIcon/> Productos</a></li>
+    <li><a href="/entry"><FolderIcon/> Ingreso</a></li>
+    <li><a href="/sales"><BagIcon/> Ventas</a></li>
+    <li><a href="/faq"><InfoIcon/> Preguntas Frecuentes</a></li>
 </ul>
