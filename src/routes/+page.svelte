@@ -1,9 +1,6 @@
 <script>
     import { enhance } from '$app/forms';
-    
     export let form;
-
-    $: console.log(form)
 </script>
 
 <div class="form-box">
