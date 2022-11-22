@@ -24,6 +24,7 @@
     </div>
 {/if}
 
+
 <style>
     .box {
         padding:2em;

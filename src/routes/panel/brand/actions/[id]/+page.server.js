@@ -9,12 +9,11 @@ export const actions = {
 
         console.log({data});
         console.log({id,name,slug})
-        const response = await updateBrand({name,slug},id);
+        const { success , message }= await updateBrand({name,slug},id);
 
-        console.log(response);
-        // return {
-        //     success,
-        //     message
-        // }
+        return {
+            success,
+            message
+        }
     }
 }

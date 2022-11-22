@@ -5,6 +5,13 @@
     
     export let form;
     export let data;
+
+    $: if(form?.success){ 
+        showToastBR({title:form.message,message:'Actualizado exitosamente',type:'success'});
+        goto('/panel/brand/actions')
+    }
+
+    
 </script>
 
 {#if data?.doc}
@@ -32,7 +39,6 @@
 {:else}
 <p>No data</p>
 {/if}
-
 
 <style>
     .box {
