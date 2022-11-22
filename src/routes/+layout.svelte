@@ -16,7 +16,7 @@
 <ToastContainer let:data={data}>
     <FlatToast {data} />
 </ToastContainer>
-<BrandModal/>
+<BrandModal />
 
 
 <style>

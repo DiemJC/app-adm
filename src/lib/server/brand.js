@@ -29,7 +29,6 @@ export const updateBrand = async (args,id) => {
             mode:'cors',
             body:JSON.stringify(args)
         });
-        console.log({response})
         const data = await response.json();
         return data;
     } catch (error) {
