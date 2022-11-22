@@ -1,6 +1,9 @@
 <script>
     import { Alert , TagIcon  } from '$lib/components';
+    import { focus } from '$lib/store';
+
     export let data;
+
 </script>
 
 {#if data?.size === 0}
@@ -21,7 +24,10 @@
                 <div class="flex-none" slot="actions">
                     <a href="/panel/brand/actions/{doc._id}" class="btn btn-sm btn-ghost text-success">Editar</a>
                     <!-- <button class="btn btn-sm btn-ghost text-error">Eliminar</button> -->
-                    <label for="brand-modal" class="btn btn-sm btn-ghost text-error">open modal</label>
+                    <label for="brand-modal" class="btn btn-sm btn-ghost text-error"
+                        on:keypress={() => focus.focus(doc._id)}
+                        on:click={() => focus.focus(doc._id)}
+                    >Eliminar</label>
                 </div>
             </Alert>
             <br>
