@@ -20,8 +20,6 @@ export const actions = {
 
         if(!success) return invalid(401,{failedFetch:true,message});
 
-        //auth.login({token,isAuth:true,role,id})
-
         return {
             success,
             message,

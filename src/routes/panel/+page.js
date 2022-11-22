@@ -8,5 +8,5 @@ export const load = ({}) => {
 
     if(session) browser && auth.refreshAuth();
     
-    if(!session) goto('/')
+    if(!session) browser && goto('/')
 }
