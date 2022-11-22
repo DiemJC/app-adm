@@ -19,3 +19,5 @@ export { default as FolderIcon} from './Icons/FolderIcon.svelte'
 export { default as BagIcon} from './Icons/BagIcon.svelte'
 
 export { default as InfoIcon} from './Icons/InfoIcon.svelte'
+
+export { default as Alert } from './Alerts/Alert.svelte'

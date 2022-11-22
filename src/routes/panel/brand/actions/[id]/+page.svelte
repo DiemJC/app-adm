@@ -4,34 +4,35 @@
     import { showToastBR } from '$lib/tools/toasts';
     
     export let form;
-
-    $: if(form?.success){ 
-        showToastBR({title:form.message,message:'Su registro fue realizado con éxito',type:'success'});
-        goto('/panel/brand')
-    }
-
+    export let data;
 </script>
 
+{#if data?.doc}
 <div class="view text-center">
     <div class="box">
-        <h2 class="text-3xl text-primary">Registrar nueva marca</h2>
+        <h2 class="text-3xl text-primary">Actualizar marca</h2>
         <div class="divider"></div>
         <form method="POST" use:enhance>
+            <input name="id" value="{data.doc._id}" type="text" class="hidden">
             <div class="form-group">
                 <label for="" class="label text-sm">Nombre</label>
-                <input name="name" type="text" class:input-error={form?.name && form.missing} class="input input-bordered form-control w-full" placeholder="ejemplo@mail.com" >
+                <input name="name" type="text" value="{data.doc.name}" class:input-error={form?.name && form.missing} class="input input-bordered form-control w-full" placeholder="ejemplo@mail.com" >
             </div>
             <div class="form-group">
                 <label for="" class="label text-sm">Descripción</label>
-                <textarea name="slug" class:textarea-error={form?.slug && form.missing} class="textarea textarea-bordered w-full" placeholder="Breve descripción del producto" />
+                <textarea name="slug" value="{data.doc.slug}" class:textarea-error={form?.slug && form.missing} class="textarea textarea-bordered w-full" placeholder="Breve descripción del producto" />
             </div>
             <br>
             <div class="flex flex-end">
-                <button class="btn btn-primary text-white">Registrar</button>
+                <button class="btn btn-primary text-white">Actualizar</button>
             </div>
         </form>
     </div>
 </div>
+{:else}
+<p>No data</p>
+{/if}
+
 
 <style>
     .box {

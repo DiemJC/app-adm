@@ -4,7 +4,6 @@
     import { auth } from '$lib/store';
 
     $: hasSession = $auth.isAuth;
-    $: console.log({path:'header',hasSession})
 
     const endSession = () => {
         browser && localStorage.clear()
