@@ -3,10 +3,6 @@
     $: console.log(data);
 </script>
 
-<svelte:head>
-    <title>Marcas</title>
-</svelte:head>
-
 {#if true}
 <div class="box text-center">
     <h2 class="text-4xl mt-3">Sin marcas registradas</h2>
