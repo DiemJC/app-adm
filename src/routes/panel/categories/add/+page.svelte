@@ -9,7 +9,7 @@
 
     $: if(form?.success){ 
         showToastBR({title:form.message,message:'Su registro fue realizado con éxito',type:'success'});
-        goto('/panel/brand')
+        goto('/panel/categories')
     }
 
 </script>
@@ -21,23 +21,28 @@
         <form method="POST" use:enhance>
             <div class="form-group">
                 <label for="" class="label text-sm">Marca</label>
-                <input name="name" type="text" 
-                    class:input-error={form?.name && form.missing} list="brand"
+                <input name="brand" type="text" 
+                    class:input-error={form?.name && form.missing} list="brands"
                     class="input input-bordered form-control w-full" 
                     placeholder="Marca" 
                 >
                 {#if data?.brands && data.brands.length > 0}
-                <datalist>
-                    {#each data.brands as brand}
-                    <option value="{brand._id}">{brand.name}</option>
-                    {/each}
-                </datalist>
-                
+                    <datalist id="brands" >
+                        {#each data.brands as brand}
+                        <option value="{brand._id}">{brand.name}</option>
+                        {/each}
+                    </datalist>
                 {/if}
             </div>
             <div class="form-group">
+                <label for="" class="label text-sm">Nombre</label>
+                <input name="name" type="text" class:input-error={form?.name && form.missing} class="input input-bordered form-control w-full" 
+                    placeholder="Nombre de categoría"
+                >
+            </div>
+            <div class="form-group">
                 <label for="" class="label text-sm">Descripción</label>
-                <textarea name="slug" class:textarea-error={form?.slug && form.missing} class="textarea textarea-bordered w-full" placeholder="Breve descripción del producto" />
+                <textarea name="slug" class:textarea-error={form?.slug && form.missing} class="textarea textarea-bordered w-full" placeholder="Breve descripción" />
             </div>
             <br>
             <div class="flex flex-end">
