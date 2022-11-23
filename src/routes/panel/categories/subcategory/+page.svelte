@@ -4,7 +4,8 @@
 
     $: subs = data.docs;
 
-    const filtered = (id) => subs.map(obj => obj.category._id === id);
+    $: filtered = (id) => subs.filter(obj => obj.category._id === id);
+
 </script>
 
 {#if data?.size === 0}
@@ -25,7 +26,10 @@
                     <div class="text-xs">sub-categorías: {filtered(doc._id).length}</div>
                 </div>
                 <div slot="actions">
-                    <a href="/panel/categories/subcategory/{doc._id}/add" class="btn btn-sm btn-ghost text-primary">Agregar sub categoría</a>
+                    <a href="/panel/categories/subcategory/{doc._id}/add" class="btn btn-sm btn-ghost text-primary">Agregar</a>
+                    {#if filtered(doc._id).length > 0}
+                    <a href="/panel/categories/subcategory/{doc._id}/update" class="btn btn-sm btn-ghost text-success">Editar</a>
+                    {/if}
                 </div>
             </Alert>
             <br>
