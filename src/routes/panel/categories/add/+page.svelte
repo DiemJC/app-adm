@@ -2,8 +2,6 @@
     import { enhance } from '$app/forms';
     import { goto } from '$app/navigation';
     import { showToastBR } from '$lib/tools/toasts';
-
-    export let data;
     
     export let form;
 
@@ -14,26 +12,13 @@
 
 </script>
 
+<svelte:head>Registrar Categoría</svelte:head>
+
 <div class="view text-center">
     <div class="box">
         <h2 class="text-3xl text-primary">Registrar categoría</h2>
         <div class="divider"></div>
         <form method="POST" use:enhance>
-            <div class="form-group">
-                <label for="" class="label text-sm">Marca</label>
-                <input name="brand" type="text" 
-                    class:input-error={form?.name && form.missing} list="brands"
-                    class="input input-bordered form-control w-full" 
-                    placeholder="Marca" 
-                >
-                {#if data?.brands && data.brands.length > 0}
-                    <datalist id="brands" >
-                        {#each data.brands as brand}
-                        <option value="{brand._id}">{brand.name}</option>
-                        {/each}
-                    </datalist>
-                {/if}
-            </div>
             <div class="form-group">
                 <label for="" class="label text-sm">Nombre</label>
                 <input name="name" type="text" class:input-error={form?.name && form.missing} class="input input-bordered form-control w-full" 

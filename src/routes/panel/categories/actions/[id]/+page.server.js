@@ -4,14 +4,11 @@ export const actions = {
     default: async ({request}) => {
         const data = await request.formData();
 
-        const cid = data.get('cid')
-        const brand = data.get('brand');
+        const id = data.get('id')
         const name = data.get('name');
         const slug = data.get('slug');
-
-        const id = `${brand}-${name}`;
     
-        const { success , message } = await updateCategory({id,name,slug},cid);
+        const { success , message } = await updateCategory({name,slug},id);
 
         return {
             success,

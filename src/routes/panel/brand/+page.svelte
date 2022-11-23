@@ -11,7 +11,7 @@
     </div>
     {:else}
     <div class="tags">
-        <h2 class="text-3xl text-primary font-bold">Productos</h2>
+        <h2 class="text-3xl text-primary font-bold">Marcas</h2>
         <div class="divider"></div>
         {#each data?.docs as doc}
             <Alert>

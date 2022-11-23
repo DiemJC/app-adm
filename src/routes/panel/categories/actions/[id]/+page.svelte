@@ -21,25 +21,10 @@
 {#if data?.doc}
 <div class="view text-center">
     <div class="box">
-        <h2 class="text-3xl text-primary">Registrar categoría</h2>
+        <h2 class="text-3xl text-primary">Actualizar categoría</h2>
         <div class="divider"></div>
         <form method="POST" use:enhance>
-            <input type="text" class="hidden" name="cid" value="{data.doc._id}">
-            <div class="form-group">
-                <label for="" class="label text-sm">Marca</label>
-                <input value={data.doc.brand._id} name="brand" type="text" 
-                    class:input-error={form?.name && form.missing} list="brands"
-                    class="input input-bordered form-control w-full" disabled={true} 
-                    placeholder="Marca"
-                >
-                {#if data?.brands && data.brands.length > 0}
-                    <datalist id="brands" >
-                        {#each data.brands as brand}
-                        <option value="{brand._id}">{brand.name}</option>
-                        {/each}
-                    </datalist>
-                {/if}
-            </div>
+            <input type="text" class="hidden" name="id" value="{data.doc._id}">
             <div class="form-group">
                 <label for="" class="label text-sm">Nombre</label>
                 <input value={data.doc.name} name="name" type="text" class:input-error={form?.name && form.missing} 

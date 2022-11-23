@@ -10,10 +10,6 @@ export const load = async ({ params , fetch }) => {
     if(!session) browser && goto('/');
 
     const response = await fetch(`http://localhost:3001/pub/category/${params.id}`);
-    
-    const getBrands = await fetch('http://localhost:3001/pub/brand/list');
-
-    const brands = await getBrands.json();
 
     const data = await response.json();
     
@@ -25,7 +21,6 @@ export const load = async ({ params , fetch }) => {
 
     return {
         success,
-        doc,
-        brands
+        doc
     }
 }

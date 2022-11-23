@@ -11,14 +11,17 @@
     </div>
     {:else}
     <div class="tags">
-        <h2 class="text-3xl text-primary font-bold">Categorías</h2>
+        <h2 class="text-3xl text-primary font-bold">Categorias</h2>
         <div class="divider"></div>
         {#each data?.docs as doc}
             <Alert>
                 <TagIcon/>
                 <div>
-                    <h3 class="font-bold">{doc.name}</h3>
-                    <div class="text-xs">{doc.slug}</div>
+                    <h3 class="font-bold">{doc.brand.name}</h3>
+                    <div class="text-xs"><b>{doc.name}</b> - subcategorías: {doc.subs.length}</div>
+                </div>
+                <div slot="actions">
+                    <a href="/panel/categories/actions/{doc._id}" class="btn btn-sm btn-ghost text-primary">Agregar sub categoría</a>
                 </div>
             </Alert>
             <br>
