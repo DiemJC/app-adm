@@ -6,12 +6,22 @@
 
     const apidir = env.PUBLIC_API_URL;
 
+    export let route;
+
+    let paths = {
+        brands:'brand',
+        categories:'category',
+        products:'product'
+    }
+
+    $: path = route.split('/')[2]
+
     let node;
 
     const deleteBrand = async () => {
         const id = $focus;
         try {
-            const response = await fetch(`${apidir}/api/brand/delete/${id}`,{
+            const response = await fetch(`${apidir}/api/${paths[path]}/delete/${id}`,{
                 method:'DELETE',
                 headers:{
                     'Content-type':'application/json'

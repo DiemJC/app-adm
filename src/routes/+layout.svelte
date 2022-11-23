@@ -2,6 +2,9 @@
     import '../app.postcss';
     import { ToastContainer , FlatToast }  from "svelte-toasts";
     import { Header , Drawer , SideMenu , BrandModal } from '$lib/components';
+
+    export let data;
+    const { route } = data;
 </script>
 
 <div class="app">
@@ -16,7 +19,7 @@
 <ToastContainer let:data={data}>
     <FlatToast {data} />
 </ToastContainer>
-<BrandModal />
+<BrandModal route={route.id}/>
 
 
 <style>
