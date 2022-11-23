@@ -11,12 +11,12 @@ export const load = async ({fetch}) => {
 
     const response = await fetch('http://localhost:3001/pub/category/list');
     const data = await response.json(); 
-    const { success , docs } = data; 
+    let { success , docs } = data; 
 
     if(!success) return {error:true}
 
     let size = docs ? docs.length : 0; 
-
+    docs = docs ? docs : [];
     return {
         success,
         docs,
