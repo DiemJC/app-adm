@@ -9,17 +9,22 @@ export const load = async ({fetch}) => {
     
     if(!session) browser && goto('/');
 
-    const response = await fetch('http://localhost:3001/pub/category/list'); //brand - category - product
-    const data = await response.json(); // Esperar respuesta del back y convertir en json
-    const { success , docs } = data; //Respuesta del back
+    const parents = await fetch('http://localhost:3001/pub/category/list');
+    const categories = await parents.json();
+
+    const response = await fetch('http://localhost:3001/pub/sub/list');
+    const data = await response.json();
+
+    const { success , docs } = data;
 
     if(!success) return {error:true}
 
-    let size = docs ? docs.length : 0; //Devuelve la cantidad de documentos obtenidos
+    let size = categories.docs ? categories.docs.length : 0;
 
     return {
         success,
         docs,
+        categories:categories.docs,
         size
     }
 }
