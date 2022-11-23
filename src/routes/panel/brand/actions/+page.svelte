@@ -5,6 +5,9 @@
     export let data;
 
 </script>
+<svelte:head>
+    <title>Marca</title>
+</svelte:head>
 
 {#if data?.size === 0}
     <div class="box text-center">

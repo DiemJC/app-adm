@@ -11,6 +11,9 @@
     }
 
 </script>
+<svelte:head>
+    <title>Nueva Marca</title>
+</svelte:head>
 
 <div class="view text-center">
     <div class="box">
