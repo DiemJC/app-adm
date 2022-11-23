@@ -14,6 +14,10 @@
     
 </script>
 
+<svelte:head>
+    <title>Actualizar Marca</title>
+</svelte:head>
+
 {#if data?.doc}
 <div class="view text-center">
     <div class="box">
