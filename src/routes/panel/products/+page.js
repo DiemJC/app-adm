@@ -9,7 +9,7 @@ export const load = async ({fetch}) => {
     
     if(!session) browser && goto('/');
 
-    const response = await fetch('http://localhost:3001/pub/products/list'); //brand - category - product
+    const response = await fetch('http://localhost:3001/pub/product/list'); //brand - category - product
     const data = await response.json(); // Esperar respuesta del back y convertir en json
     const { success , docs } = data; //Respuesta del back
 

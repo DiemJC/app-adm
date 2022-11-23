@@ -1,8 +1,7 @@
 <script>
-    // INPUTS 
-    // TEXT - Name
-    // TEXTAREA - Slug
-    //export let form
+    export let data;
+
+    $: console.log(data);
 </script>
 
 
