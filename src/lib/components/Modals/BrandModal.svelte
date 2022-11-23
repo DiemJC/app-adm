@@ -7,7 +7,7 @@
     const apidir = env.PUBLIC_API_URL;
 
     export let route;
-
+    console.log(route)
     let paths = {
         brands:'brand',
         categories:'category',
@@ -15,7 +15,7 @@
     }
 
     $: path = route.split('/')[2]
-
+    console.log(path)
     let node;
 
     const deleteBrand = async () => {
