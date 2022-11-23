@@ -7,8 +7,6 @@ export const actions = {
         const name = data.get('name');
         const slug = data.get('slug');
 
-        console.log({data});
-        console.log({id,name,slug})
         const { success , message }= await updateBrand({name,slug},id);
 
         return {

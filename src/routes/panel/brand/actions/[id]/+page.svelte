@@ -19,7 +19,7 @@
     <div class="box">
         <h2 class="text-3xl text-primary">Actualizar marca</h2>
         <div class="divider"></div>
-        <form method="POST" use:enhance>
+        <form method="PUT" use:enhance>
             <input name="id" value="{data.doc._id}" type="text" class="hidden">
             <div class="form-group">
                 <label for="" class="label text-sm">Nombre</label>

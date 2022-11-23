@@ -22,7 +22,7 @@ export const createBrand = async (body) => {
 export const updateBrand = async (args,id) => {
     try {
         const response = await fetch(`${apidir}/api/brand/update/${id}`,{
-            method:'post',
+            method:'PUT',
             headers:{
                 'Content-type':'application/json'
             },
