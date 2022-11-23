@@ -1,5 +1,6 @@
 <script>
     import { onDestroy } from 'svelte';
+    import { goto } from '$app/navigation';
     import { env } from '$env/dynamic/public';
     import { focus } from '$lib/store';
     import { showToastBR } from '$lib/tools/toasts';
@@ -7,15 +8,17 @@
     const apidir = env.PUBLIC_API_URL;
 
     export let route;
-    console.log(route)
+
+    $: str = route;
+
     let paths = {
         brands:'brand',
         categories:'category',
         products:'product'
     }
 
-    $: path = route.split('/')[2]
-    console.log(path)
+    $: path = str.split('/')[2];
+
     let node;
 
     const deleteBrand = async () => {
@@ -30,6 +33,7 @@
             const data = await response.json();
             if(data.success) showToastBR({type:'success',title:'Eliminado',message:'Registro eliminado satisfactoriamente'});
             node.parentNode.removeChild(node);
+            goto(`/panel/${path}`)
         } catch (error) {
             showToastBR({type:'error',title:'Error',message:'Hubo algún error en la petición, intente más tarde'})
             node.parentNode.removeChild(node);

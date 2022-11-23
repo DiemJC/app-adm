@@ -26,7 +26,6 @@
                 <div class="text-xs">{doc.slug}</div>
                 <div class="flex-none" slot="actions">
                     <a href="/panel/brand/actions/{doc._id}" class="btn btn-sm btn-ghost text-success">Editar</a>
-                    <!-- <button class="btn btn-sm btn-ghost text-error">Eliminar</button> -->
                     <label for="brand-modal" class="btn btn-sm btn-ghost text-error"
                         on:keypress={() => focus.focus(doc._id)}
                         on:click={() => focus.focus(doc._id)}

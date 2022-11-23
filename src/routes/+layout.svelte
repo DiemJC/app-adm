@@ -5,6 +5,8 @@
 
     export let data;
     const { route } = data;
+
+    $: console.log(route.id)
 </script>
 
 <div class="app">

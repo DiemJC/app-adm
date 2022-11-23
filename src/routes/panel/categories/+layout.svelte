@@ -7,7 +7,7 @@
         
         <a href="/panel/categories" class="tab tab-bordered" class:tab-active={data?.path === 'index'}>General</a> 
         <a href="/panel/categories/add" class="tab tab-bordered" class:tab-active={data?.path === 'add'}>Nuevo</a> 
-        <a href="/panel/categories/actions" class="tab tab-bordered">Acciones</a>
+        <a href="/panel/categories/actions" class="tab tab-bordered" class:tab-active={data?.path === 'actions'}>Acciones</a>
     </div>
 </div>
 
