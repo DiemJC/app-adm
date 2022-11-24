@@ -27,7 +27,7 @@
             </div>
             <div class="form-group">
                 <label for="" class="label text-sm">Descripción</label>
-                <textarea name="slug" class:textarea-error={form?.slug && form.missing} class="textarea textarea-bordered w-full" placeholder="Breve descripción" />
+                <textarea name="slug" class="textarea textarea-bordered w-full" placeholder="Breve descripción" />
             </div>
             <br>
             <div class="flex flex-end">
