@@ -23,3 +23,5 @@ export { default as InfoIcon} from './Icons/InfoIcon.svelte'
 export { default as Alert } from './Alerts/Alert.svelte'
 
 export { default as BrandModal } from './Modals/BrandModal.svelte'; 
+
+export { default as Field } from './Fields/Field.svelte';
