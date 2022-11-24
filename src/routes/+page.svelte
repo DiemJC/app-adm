@@ -20,7 +20,7 @@
 </script>
 
 <div class="signin">
-    <FormBox btn="Iniciar sesión" title="Inicio de sesión">
+    <FormBox btn="Iniciar sesión" title="Inicio de sesión" noDivider={true} >
         <Field 
             name="email" type="email" ph="ejemplo@mail.com" label="Correo electrónico" 
             warning={form?.email && form.missing} fb={emailError}

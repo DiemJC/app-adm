@@ -7,7 +7,7 @@
     <div class="box text-center">
         <h2 class="text-4xl mt-3 text-primary">Sin productos registrados</h2>
         <div class="divider"></div>
-        <a href="/panel/brand/add" class="mt-3 link link-hover">Agregar</a>
+        <a href="/panel/products/add" class="mt-3 link link-hover">Agregar</a>
     </div>
     {:else}
     <div class="tags">

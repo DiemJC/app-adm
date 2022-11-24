@@ -29,3 +29,9 @@ export { default as Field } from './Fields/Field.svelte';
 export { default as Form } from './Forms/Form.svelte';
 
 export { default as FormBox } from './Forms/FormBox.svelte';
+
+export { default as FieldFile } from './Fields/FieldFile.svelte';
+
+export { default as FieldSelect } from './Fields/FieldSelect.svelte';
+
+export { default as FieldTextArea } from './Fields/FieldTextArea.svelte'

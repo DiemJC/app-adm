@@ -12,7 +12,7 @@
     $: str = route;
 
     let paths = {
-        brands:'brand',
+        brand:'brand',
         categories:'category',
         products:'product'
     }

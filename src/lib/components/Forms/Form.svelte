@@ -11,6 +11,8 @@
     {#if $$slots.button}
     <slot name="button"></slot>
     {:else}
-    <button class="btn btn-primary text-white">{btn}</button>
+    <div>
+        <button class="btn btn-primary text-white">{btn}</button>
+    </div>
     {/if}
 </form>

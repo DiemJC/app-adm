@@ -1,71 +1,73 @@
 <script>
-    import { enhance } from '$app/forms';
-    import { goto } from '$app/navigation';
-    import { showToastBR } from '$lib/tools/toasts';
+    import { FieldSelect , Field , FormBox , FieldFile , FieldTextArea } from '$lib/components'
+    // import { goto } from '$app/navigation';
+    // import { showToastBR } from '$lib/tools/toasts';
 
     export let data;
-    
-    export let form;
+    //export let form;
 
-    $: brand = '';
+    // $: if(form?.success){ 
+    //     showToastBR({title:form.message,message:'Su registro fue realizado con éxito',type:'success'});
+    //     goto('/panel/products')
+    // }
 
-    $: categories = data?.categories || [];
-    $: filtered = categories;
-
-    $: if(form?.success){ 
-        showToastBR({title:form.message,message:'Su registro fue realizado con éxito',type:'success'});
-        goto('/panel/products')
+    $: hasCode = false;
+    $: brands = [];
+    $: categories = [];
+    $: subs = [];
+    $: fSubs = [];
+    $: if(data?.brands) brands = data.brands.map(obj => ({key:obj._id,text:obj.name}));
+    $: if(data?.categories) categories = data.categories.map(obj => ({key:obj._id,text:obj.name}));
+    $: if(data?.subs) subs = data.subs;
+    $: image = ''
+    const handleCode = e => {
+        if(e.target.value) hasCode = true;
     }
 
-    const filterCategories = (e) => {
-        filtered = categories.filter(obj => obj.brand._id === e.target.value);
+    const handleSub = e => {
+        fSubs = subs.filter(obj => obj.category._id === e.target.value)
+        .map(obj => ({key:obj._id,text:obj.label}))
     }
 
-    $: console.log(brand,{categories,filtered});
 </script>
 
-<div class="view text-center">
-    <div class="box">
-        <h2 class="text-3xl text-primary">Registrar producto</h2>
-        <div class="divider"></div>
-        <form method="POST" use:enhance>
-            <div class="form-group">
-                <label for="" class="label text-sm">Marca</label>
-                <input bind:value={brand} type="text" on:change={filterCategories}
-                    class:input-error={form?.name && form.missing} list="brands"
-                    class="input input-bordered form-control w-full" 
-                    placeholder="Marca" 
-                >
-                {#if data?.brands && data.brands.length > 0}
-                    <datalist id="brands" >
-                        {#each data.brands as brand}
-                        <option value="{brand._id}">{brand.name}</option>
-                        {/each}
-                    </datalist>
-                {/if}
-            </div>
-            <div class="form-group">
-                <label for="" class="label text-sm">Nombre</label>
-                <input name="name" type="text" class:input-error={form?.name && form.missing} class="input input-bordered form-control w-full" 
-                    placeholder="Nombre de categoría"
-                >
-            </div>
-            <div class="form-group">
-                <label for="" class="label text-sm">Descripción</label>
-                <textarea name="slug" class:textarea-error={form?.slug && form.missing} class="textarea textarea-bordered w-full" placeholder="Breve descripción" />
-            </div>
-            <br>
-            <div class="flex flex-end">
-                <button class="btn btn-primary text-white">Registrar</button>
-            </div>
-        </form>
-    </div>
+<div class="products">
+    <FormBox title="Registro de producto" btn="registrar" >
+        <Field label="Código de barras" type="text" 
+            focusable={true} warning={false} name="code" onChange={handleCode}
+        />
+        {#if hasCode}
+        <FieldFile name="cover" label="Imagen de portada" bind:value={image} />
+        {/if}
+        {#if hasCode && image}
+        <div class="flex gap-2 w-full ">
+            <FieldSelect options={brands} label="Marca" warnings={false} name="brand" />
+            <FieldSelect options={categories} label="Categorías" warnings={false} 
+                onChange={handleSub}
+            />
+            {#if fSubs.length > 0}
+            <FieldSelect options={fSubs} label="Subcategoría" warnings={false} name="sub" />
+            {/if}
+        </div>
+        <Field 
+            name="name" type="text" ph="Nombre del producto" label="Nombre"
+        />
+        <FieldTextArea name="slug" label="Descripción" ph="Breve descripción del producto" />
+        <Field 
+            name="price" type="number" ph="Costo inicial" label="Costo"
+        />
+        {:else}
+        <p>Escanee o ingrese el código de barras seguido de enter para continuar</p>
+        {/if}
+    </FormBox>
 </div>
 
 <style>
-    .box {
-        width:min(30rem,100%);
-        margin:auto;
-        margin-top:3em;
+    .products {
+        display:grid;
+        place-items: center;
+        width:100%;
+        min-height: 30rem;
+        padding:1em;
     }
 </style>

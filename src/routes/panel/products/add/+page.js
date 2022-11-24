@@ -11,18 +11,23 @@ export const load = async ({fetch}) => {
     
     const brandsResponse = await fetch('http://localhost:3001/pub/brand/list');
     const categoriesResponse = await fetch('http://localhost:3001/pub/category/list');
+    const subsResponse = await fetch('http://localhost:3001/pub/sub/list');
 
     const brandsData = await brandsResponse.json();
     const categoriesData = await categoriesResponse.json();
+    const subsData = await subsResponse.json();
 
     let brands;
     let categories;
+    let subs;
 
     if(brandsData.success) brands = brandsData.docs;
     if(categoriesData.success) categories = categoriesData.docs;
+    if(subsData.success) subs = subsData.docs;
 
     return {
         brands,
-        categories
+        categories,
+        subs
     }
 }
