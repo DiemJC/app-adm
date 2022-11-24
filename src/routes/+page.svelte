@@ -19,7 +19,7 @@
 
 </script>
 
-<div class="form-box">
+<div class="signin">
     <FormBox btn="Iniciar sesión" title="Inicio de sesión">
         <Field 
             name="email" type="email" ph="ejemplo@mail.com" label="Correo electrónico" 
@@ -34,7 +34,7 @@
 
 <style>
 
-    .form-box {
+    .signin {
         display:grid;
         place-items: center;
         width:100%;
