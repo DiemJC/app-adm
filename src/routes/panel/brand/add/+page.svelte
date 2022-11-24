@@ -1,5 +1,5 @@
 <script>
-    import { FormBox, Field } from '$lib/components';
+    import { FormBox, Field , FieldTextArea } from '$lib/components';
     import { goto } from '$app/navigation';
     import { showToastBR } from '$lib/tools/toasts';
     
@@ -25,9 +25,7 @@
             name="name" type="text" ph="Marca" label="Nombre" 
             warning={form?.name && form.missing || form?.short} fb={NameError} 
         />
-        <Field 
-            name="slug" type="textarea" ph="Descripción breve" label="Descripción" 
-        />
+        <FieldTextArea name="slug" label="Descripción" ph="Breve descripción del producto" />
     </FormBox>
 </div>
 

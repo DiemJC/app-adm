@@ -65,7 +65,7 @@
 <style>
     .products {
         display:grid;
-        place-items: center;
+        place-content: center;
         width:100%;
         min-height: 30rem;
         padding:1em;
