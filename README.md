@@ -2,7 +2,13 @@
 
 ## TODO'S
 
+### APP DEMO
+
 - [x] Elegir ui lib necesaria
+
+- [x] Evaluar la posibilidad de agregar redis a svelte //MEET 24/11/22
+
+- [x] Construir sidebar y layout para app
 
 - [x] Acciones CRUD MARCAS
 
@@ -12,19 +18,19 @@
 
 - [ ] Acciones CRUD INGRESOS
 
-- [ ] Acciones CRUD VENTAS 
+- [ ] Agregar cabeceras de petición ( Kelvin )
 
-- [ ] Agregar módulo de login y control de acceso de usuario
-
-- [x] Evaluar la posibilidad de agregar redis a svelte //MEET 24/11/22
-
-- [ ] Editar queries de Redis
+- [ ] Construir vista de colaboradores ( Kelvin )
 
 - [ ] Construir funcionalidad básica del dashboard
 
-- [x] Construir sidebar y layout para app
+### APP V1
 
-- [ ] Construir vista de colaboradores
+- [ ] Editar queries de Redis
+
+- [ ] Agregar módulo de login y control de acceso de usuario
+
+- [ ] Acciones CRUD VENTAS 
 
 - [ ] Construir feed de FAQ'S
 
