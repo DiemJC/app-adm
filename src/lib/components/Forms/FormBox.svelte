@@ -3,6 +3,8 @@
     export let btn;
     export let title;
     export let noDivider = false;
+    export let loading;
+    export let cb = () => console.log('');
 </script>
 
 <div class="form text-center" style="width: min(40rem,100%);">
@@ -10,7 +12,7 @@
     {#if !noDivider}
         <div class="divider"></div>
     {/if}
-    <Form {btn}>
+    <Form {btn} {cb} {loading}>
         <slot></slot>
     </Form>
 </div>

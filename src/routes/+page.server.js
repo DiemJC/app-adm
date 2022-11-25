@@ -11,9 +11,9 @@ export const actions = {
 
         if(!email) return invalid(400,{email:true,missing:true});
         
-        if(!password) return invalid(400,{password:true,missing:true});
+        if(!password) return invalid(400,{pass:true,missing:true});
 
-        if(password.length < 6) return invalid(403,{password,short:true});
+        if(password.length < 6) return invalid(403,{pass:true,short:true});
         
         const response = await signIn({email,password});
         

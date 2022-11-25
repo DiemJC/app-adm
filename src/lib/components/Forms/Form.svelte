@@ -1,8 +1,11 @@
 <script>
+    import { Pulse } from 'svelte-loading-spinners';
     import { enhance } from '$app/forms';
+
 
     export let btn = 'Button';
     export let cb = () => console.log('Without enhance');
+    export let loading = false;
 </script>
 
 <form method="POST" use:enhance={cb} >
@@ -12,7 +15,12 @@
     <slot name="button"></slot>
     {:else}
     <div>
+        {#if loading}
+        <Pulse size="60" color="#88A0A8" unit="px" />
+        {:else}
         <button class="btn btn-primary text-white">{btn}</button>
+        {/if}
+        
     </div>
     {/if}
 </form>

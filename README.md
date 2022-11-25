@@ -6,7 +6,7 @@
 
 - [x] Acciones CRUD MARCAS
 
-- [ ] Acciones CRUD CATEGORIAS
+- [x] Acciones CRUD CATEGORIAS
 
 - [ ] Acciones CRUDS PRODUCTOS
 

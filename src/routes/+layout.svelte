@@ -13,7 +13,7 @@
 
 {#if $loading}
 <div class="loading bg-base-100">
-    <Shadow size="60" color="#88A0A8" unit="px" duration="1s" />
+    <Shadow size="60" color="#88A0A8" unit="px"/>
 </div>
 {:else}
 <div class="app">
