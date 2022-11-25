@@ -5,23 +5,20 @@
 
     export let data;
 
-    $: hasCode = false;
-    $: brands = [];
-    $: categories = [];
-    $: subs = [];
-    $: fSubs = [];
-    $: if(data?.brands) brands = data.brands.map(obj => ({key:obj._id,text:obj.name}));
-    $: if(data?.categories) categories = data.categories.map(obj => ({key:obj._id,text:obj.name}));
-    $: if(data?.subs) subs = data.subs;
-    $: image = ''
-    const handleCode = e => {
-        if(e.target.value) hasCode = true;
-    }
+    // $: brands = [];
+    // $: categories = [];
+    // $: subs = [];
+    // $: fSubs = [];
+    // $: if(data?.brands) brands = data.brands.map(obj => ({key:obj._id,text:obj.name}));
+    // $: if(data?.categories) categories = data.categories.map(obj => ({key:obj._id,text:obj.name}));
+    // $: if(data?.subs) subs = data.subs;
+    $: image = data.doc.cover;
 
-    const handleSub = e => {
-        fSubs = subs.filter(obj => obj.category._id === e.target.value)
-        .map(obj => ({key:obj._id,text:obj.label}))
-    }
+
+    // const handleSub = e => {
+    //     fSubs = subs.filter(obj => obj.category._id === e.target.value)
+    //     .map(obj => ({key:obj._id,text:obj.label}))
+    // }
 
     $: loading = false;
 
@@ -46,41 +43,35 @@
             }
         }
     }
-
-
+    
 </script>
+{#if data?.doc}
 
 <div class="products">
     <FormBox title="Registro de producto" btn="registrar" {cb} {loading} >
-        <Field label="Código de barras" type="text" 
-            focusable={true} warning={false} name="code" onChange={handleCode}
+        <Field label="Código de barras" type="text" value="{data.doc.code}"
+            focusable={true} warning={false} name="code"
         />
-        {#if hasCode}
+        <!-- Agregar opción para cambiar imagen si dan click eliminar actual y devolver file input -->
         <FieldFile name="cover" label="Imagen de portada" bind:value={image} />
-        {/if}
-        {#if hasCode && image}
-        <div class="flex gap-2 w-full ">
-            <FieldSelect options={brands} label="Marca" warnings={false} name="brand" />
+        <!-- <div class="flex gap-2 w-full ">
+            <FieldSelect options={brands} label="Marca" warnings={false} name="brand" value="{data.doc.brand}" />
             <FieldSelect options={categories} label="Categorías" warnings={false} 
                 onChange={handleSub}
             />
-            {#if fSubs.length > 0}
-            <FieldSelect options={fSubs} label="Subcategoría" warnings={false} name="sub" />
-            {/if}
-        </div>
+            <FieldSelect options={fSubs} label="Subcategoría" warnings={false} name="sub" value="{data.doc.sub}" />
+        </div> -->
         <Field 
-            name="name" type="text" ph="Nombre del producto" label="Nombre"
+            name="name" type="text" ph="Nombre del producto" label="Nombre" value="{data.doc.name}"
         />
-        <FieldTextArea name="slug" label="Descripción" ph="Breve descripción del producto" />
+        <FieldTextArea name="slug" label="Descripción" ph="Breve descripción del producto" value={data.doc.slug} />
         <Field 
-            name="price" type="number" ph="Costo inicial" label="Costo"
+            name="price" type="number" ph="Costo inicial" label="Costo" value={data.doc.price}
         />
-        {:else}
-        <p>Escanee o ingrese el código de barras seguido de enter para continuar</p>
-        {/if}
     </FormBox>
 </div>
 
+{/if}
 <style>
     .products {
         display:grid;

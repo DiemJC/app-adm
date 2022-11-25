@@ -10,8 +10,11 @@ export const actions = {
         const body = Object.fromEntries(data);
         body.cover = cover;
 
-        const response = await createProduct(body);
+        const { success , message } = await createProduct(body);
         
-        console.log(response);
+        return {
+            success,
+            message
+        }
     }
 }

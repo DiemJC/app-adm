@@ -5,7 +5,7 @@
     export let warning = false
     export let ph = '';
     export let fb = '';
-
+    export let value = ''
     export let focusable = false;
 
     export let onChange = e => console.log('On change');
@@ -19,6 +19,7 @@
     <input 
         name={name} 
         type={type} 
+        value={value} 
         class:input-error={warning} 
         class="input input-bordered form-control w-full" 
         placeholder={ph} 

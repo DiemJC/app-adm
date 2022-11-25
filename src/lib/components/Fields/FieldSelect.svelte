@@ -4,9 +4,10 @@
     export let name = '';
     export let warnings = false;
     export let fb = '';
+    export let value = ''
 
     export let onChange = e => console.log(e.target.value);
-    $: value = ''
+
 </script>
 
 <div class="form-group">

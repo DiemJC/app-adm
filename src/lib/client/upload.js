@@ -4,7 +4,6 @@ const cloud_name = env.PUBLIC_CLOUD_NAME;
 const preset = env.PUBLIC_PRESET;
 
 export const fileUpload = async (file) => {
-    console.log({file})
     const cloudinaryUrl = `https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`
     const formData = new FormData();
     formData.append('upload_preset', `${preset}`)
