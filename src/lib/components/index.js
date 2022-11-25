@@ -35,3 +35,7 @@ export { default as FieldFile } from './Fields/FieldFile.svelte';
 export { default as FieldSelect } from './Fields/FieldSelect.svelte';
 
 export { default as FieldTextArea } from './Fields/FieldTextArea.svelte'
+
+export { default as Table } from './Table/Table.svelte'
+
+export { default as TableRow } from './Table/TableRow.svelte'

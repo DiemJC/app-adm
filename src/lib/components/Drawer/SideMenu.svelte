@@ -7,7 +7,7 @@
 <ul class="menu p-4 w-80 bg-base-100 text-base-content shadow-xl">
     <li class="mb-2">Control</li>
     <li><a href={null} ><HomeIcon/> Dashboards</a></li>
-    <li><a href={null} ><UserIcon/> Colaboradores</a></li>
+    <li><a href="/panel/staff"><UserIcon/> Colaboradores</a></li>
     <div class="divider"></div>
     <!--DESDE ACÁ-->
     <li>
