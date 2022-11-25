@@ -5,7 +5,6 @@
 
     export let data;
 
-    $: hasCode = false;
     $: brands = [];
     $: categories = [];
     $: subs = [];
@@ -14,9 +13,6 @@
     $: if(data?.categories) categories = data.categories.map(obj => ({key:obj._id,text:obj.name}));
     $: if(data?.subs) subs = data.subs;
     $: image = ''
-    const handleCode = e => {
-        if(e.target.value) hasCode = true;
-    }
 
     const handleSub = e => {
         fSubs = subs.filter(obj => obj.category._id === e.target.value)
@@ -52,13 +48,7 @@
 
 <div class="products">
     <FormBox title="Registro de producto" btn="registrar" {cb} {loading} >
-        <Field label="Código de barras" type="text" 
-            focusable={true} warning={false} name="code" onChange={handleCode}
-        />
-        {#if hasCode}
         <FieldFile name="cover" label="Imagen de portada" bind:value={image} />
-        {/if}
-        {#if hasCode && image}
         <div class="flex gap-2 w-full ">
             <FieldSelect options={brands} label="Marca" warnings={false} name="brand" />
             <FieldSelect options={categories} label="Categorías" warnings={false} 
@@ -72,12 +62,6 @@
             name="name" type="text" ph="Nombre del producto" label="Nombre"
         />
         <FieldTextArea name="slug" label="Descripción" ph="Breve descripción del producto" />
-        <Field 
-            name="price" type="number" ph="Costo inicial" label="Costo"
-        />
-        {:else}
-        <p>Escanee o ingrese el código de barras seguido de enter para continuar</p>
-        {/if}
     </FormBox>
 </div>
 

@@ -37,7 +37,7 @@
         return async ({result}) => {    
             if(result.type === 'success') {
                 const { message } = result.data;
-                showToastBR({title:'Registrado',message,type:'success'})
+                showToastBR({title:'Actualizado',message,type:'success'})
                 loading = false;
                 goto('/panel/products');
             }
@@ -52,9 +52,6 @@
         <input type="text" name="id" value="{data.doc._id}" class="hidden">
         <input type="text" name="prev" class="hidden" value={data.doc.cover}>
         <input type="text" name="image" bind:value="{changed}" class="hidden">
-        <Field label="Código de barras" type="text" value="{data.doc.code}"
-            focusable={true} warning={false} name="code"
-        />
         <FieldFile name="cover" label="Imagen de portada" bind:changed={changed} value={image} />
         <div class="flex gap-2 w-full ">
             <FieldSelect options={brands} label="Marca" warnings={false} name="brand" value="{data.doc.brand}" />
@@ -69,9 +66,6 @@
             name="name" type="text" ph="Nombre del producto" label="Nombre" value="{data.doc.name}"
         />
         <FieldTextArea name="slug" label="Descripción" ph="Breve descripción del producto" value={data.doc.slug} />
-        <Field 
-            name="price" type="number" ph="Costo inicial" label="Costo" value={data.doc.price}
-        />
     </FormBox>
 </div>
 

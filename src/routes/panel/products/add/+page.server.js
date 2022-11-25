@@ -6,6 +6,7 @@ export const actions = {
         const data = await request.formData();
 
         let cover = data.get('cover');
+
         cover = await fileUpload(cover);
         const body = Object.fromEntries(data);
         body.cover = cover;
