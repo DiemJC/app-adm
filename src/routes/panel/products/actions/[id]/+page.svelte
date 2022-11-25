@@ -5,26 +5,26 @@
 
     export let data;
 
-    // $: brands = [];
-    // $: categories = [];
-    // $: subs = [];
-    // $: fSubs = [];
-    // $: if(data?.brands) brands = data.brands.map(obj => ({key:obj._id,text:obj.name}));
-    // $: if(data?.categories) categories = data.categories.map(obj => ({key:obj._id,text:obj.name}));
-    // $: if(data?.subs) subs = data.subs;
+    $: brands = [];
+    $: categories = [];
+    $: subs = [];
+    $: fSubs = [];
+    $: if(data?.brands) brands = data.brands.map(obj => ({key:obj._id,text:obj.name}));
+    $: if(data?.categories) categories = data.categories.map(obj => ({key:obj._id,text:obj.name}));
+    $: if(data?.subs) subs = data.subs;
     $: image = data.doc.cover;
+    $: changed = false;
 
-
-    // const handleSub = e => {
-    //     fSubs = subs.filter(obj => obj.category._id === e.target.value)
-    //     .map(obj => ({key:obj._id,text:obj.label}))
-    // }
+    const handleSub = e => {
+        fSubs = subs.filter(obj => obj.category._id === e.target.value)
+        .map(obj => ({key:obj._id,text:obj.label}))
+    }
 
     $: loading = false;
 
     const loadingToast = () => {
         setTimeout(() => {
-            showToastBR({
+            if(loading) showToastBR({
                 title:'Enviando',
                 message:'Por favor espere esta operación puede demorar algunos minutos',
                 type:'info'
@@ -49,18 +49,22 @@
 
 <div class="products">
     <FormBox title="Registro de producto" btn="registrar" {cb} {loading} >
+        <input type="text" name="id" value="{data.doc._id}" class="hidden">
+        <input type="text" name="prev" class="hidden" value={data.doc.cover}>
+        <input type="text" name="image" bind:value="{changed}" class="hidden">
         <Field label="Código de barras" type="text" value="{data.doc.code}"
             focusable={true} warning={false} name="code"
         />
-        <!-- Agregar opción para cambiar imagen si dan click eliminar actual y devolver file input -->
-        <FieldFile name="cover" label="Imagen de portada" bind:value={image} />
-        <!-- <div class="flex gap-2 w-full ">
+        <FieldFile name="cover" label="Imagen de portada" bind:changed={changed} value={image} />
+        <div class="flex gap-2 w-full ">
             <FieldSelect options={brands} label="Marca" warnings={false} name="brand" value="{data.doc.brand}" />
             <FieldSelect options={categories} label="Categorías" warnings={false} 
                 onChange={handleSub}
             />
-            <FieldSelect options={fSubs} label="Subcategoría" warnings={false} name="sub" value="{data.doc.sub}" />
-        </div> -->
+            {#if fSubs.length > 0}
+            <FieldSelect options={fSubs} label="Subcategoría" warnings={false} name="sub" />
+            {/if}
+        </div>
         <Field 
             name="name" type="text" ph="Nombre del producto" label="Nombre" value="{data.doc.name}"
         />

@@ -3,9 +3,10 @@
     export let fb = '';
     export let name = '';
     export let value = ''
-
+    export let changed = false;
 
     const handleImage = e => {
+        changed = true;
         const reader = new FileReader();
         reader.onload = e => {
             value = reader.result;

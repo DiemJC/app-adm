@@ -10,6 +10,21 @@ export const load = async ({ params , fetch }) => {
     if(!session) browser && goto('/');
 
     const response = await fetch(`http://localhost:3001/pub/product/${params.id}`);
+    const brandsResponse = await fetch('http://localhost:3001/pub/brand/list');
+    const categoriesResponse = await fetch('http://localhost:3001/pub/category/list');
+    const subsResponse = await fetch('http://localhost:3001/pub/sub/list');
+
+    const brandsData = await brandsResponse.json();
+    const categoriesData = await categoriesResponse.json();
+    const subsData = await subsResponse.json();
+
+    let brands;
+    let categories;
+    let subs;
+
+    if(brandsData.success) brands = brandsData.docs;
+    if(categoriesData.success) categories = categoriesData.docs;
+    if(subsData.success) subs = subsData.docs;
 
     const data = await response.json();
     
@@ -21,6 +36,9 @@ export const load = async ({ params , fetch }) => {
 
     return {
         success,
-        doc
+        doc,
+        brands,
+        categories,
+        subs
     }
 }
