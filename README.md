@@ -14,7 +14,7 @@
 
 - [x] Acciones CRUD CATEGORIAS
 
-- [ ] Acciones CRUDS PRODUCTOS
+- [x] Acciones CRUDS PRODUCTOS
 
 - [ ] Acciones CRUD INGRESOS
 
