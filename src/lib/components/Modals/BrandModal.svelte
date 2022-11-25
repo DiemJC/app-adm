@@ -18,7 +18,7 @@
     }
 
     $: path = str.split('/')[2];
-
+    $: console.log({path,str});
     let node;
 
     const deleteBrand = async () => {

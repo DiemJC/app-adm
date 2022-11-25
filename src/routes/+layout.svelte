@@ -8,7 +8,7 @@
     export let data;
     const { route } = data;
 
-    $: console.log(route.id)
+    $: path = route.id;
 </script>
 
 {#if $loading}
@@ -29,7 +29,7 @@
 <ToastContainer let:data={data}>
     <FlatToast {data} />
 </ToastContainer>
-<BrandModal route={route.id}/>
+<BrandModal route={path}/>
 
 
 <style>
